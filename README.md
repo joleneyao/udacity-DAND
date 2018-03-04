@@ -1,15 +1,11 @@
-## Welcome to GitHub Pages
+# Udacity Data Analyst Nanodegree Projects
 
-You can use the [editor on GitHub](https://github.com/joleneyao/joleneyao.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+### Description
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Below is a table of all the projects that I have completed for the Data Analyst Nanodegree (DAND) from December 2017 - June 2018. What follows is a certificate of completion of the DAND. 
 
-```markdown
-Syntax highlighted code block
 
 # Header 1
 ## Header 2
@@ -24,6 +20,9 @@ Syntax highlighted code block
 **Bold** and _Italic_ and `Code` text
 
 [Link](url) and ![Image](src)
+
+```markdown
+Data Analyst Nanodegree Certificate of Completion
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
