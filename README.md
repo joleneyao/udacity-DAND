@@ -14,6 +14,7 @@ Below is a table of all the projects that I have completed for the Data Analyst 
 
 
 ```markdown
-Data Analyst Nanodegree Certificate of Completion
+### Data Analyst Nanodegree Certificate of Completion
+(insert .png image here or link to pdf)
 ```
 
