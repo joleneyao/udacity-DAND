@@ -6,16 +6,11 @@
 
 Below is a table of all the projects that I have completed for the Data Analyst Nanodegree (DAND) from December 2017 - June 2018. What follows is a certificate of completion of the DAND. 
 
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
+| Section(Term, Part)| Project              | Quizzes |
+| ------------------ |:--------------------:| -------:|
+| T1, Part 1         | Weather Trends       | (url)   |
+| T2, Part 2 .       | Bike-Share           |[https://github.com/joleneyao/joleneyao.github.io/blob/master/Bike_Share_Analysis%20(Showcase).ipynb] (Link) |
+| T1, Part 3         | No-Show Appointments |  (url)   |
 
 **Bold** and _Italic_ and `Code` text
 
