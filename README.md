@@ -1,6 +1,4 @@
-<p align="center">
-  <img width="600" height="105" src="https://github.com/joleneyao/joleneyao.github.io/blob/master/images/Udacity%20logo.png">
-</p>
+<img src="https://raw.githubusercontent.com/joleneyao/joleneyao.github.io/master/images/Udacitylogo.png">
 
 
 # Udacity Data Analyst Nanodegree Project Porfolio
