@@ -1,6 +1,8 @@
+![alt text](https://github.com/joleneyao/joleneyao.github.io/blob/master/images/Udacity%20logo.png)
+
 # Udacity Data Analyst Nanodegree Projects
 
-![alt text](https://github.com/joleneyao/joleneyao.github.io/blob/master/images/Udacity%20logo.png)
+
 
 ### Description
 
