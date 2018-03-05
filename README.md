@@ -1,5 +1,6 @@
-![alt text](https://github.com/joleneyao/joleneyao.github.io/blob/master/images/Udacity%20logo.png)
-
+<p align="center">
+  <img width="800" height="140" src="https://github.com/joleneyao/joleneyao.github.io/blob/master/images/Udacity%20logo.png">
+</p>
 
 
 # Udacity Data Analyst Nanodegree Project Porfolio
