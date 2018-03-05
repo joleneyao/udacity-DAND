@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="800" height="140" src="https://github.com/joleneyao/joleneyao.github.io/blob/master/images/Udacity%20logo.png">
+  <img width="600" height="105" src="https://github.com/joleneyao/joleneyao.github.io/blob/master/images/Udacity%20logo.png">
 </p>
 
 
