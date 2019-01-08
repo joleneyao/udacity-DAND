@@ -8,7 +8,7 @@
 
 Below is a table of all the projects that I have completed for the Data Analyst Nanodegree (DAND) from 2018-2019. What follows is a certificate of completion of the DAND. 
 
-| Section(Term, Part)                        | Project | Quizzes |
+| Section(Term, Part)| Project | Quizzes |
 | ------------------ |:---------------------:| :-------:|
 | T1, Part 1 - Welcome                       | [Weather Trends](https://github.com/joleneyao/joleneyao.github.io/blob/master/p1/DAND%20-%20Project%201%20Weather%20Trends.pdf)|[Link](https://github.com/joleneyao/joleneyao.github.io/tree/master/p1/quizzes)   |
 | T1, Part 2 - Intro to Python               | [Bike Share Analysis](https://github.com/joleneyao/joleneyao.github.io/blob/master/p2/Bike_Share_Analysis%20(Showcase).ipynb)|[Link](https://github.com/joleneyao/joleneyao.github.io/tree/master/p2/quizzes)   |
