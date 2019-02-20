@@ -20,6 +20,5 @@ Below is a table of all the projects that I have completed for the Data Analyst 
 | T2, Part 8 - Data Story Telling            | [Chicago ORD Airport Analysis for Future Trips](https://github.com/joleneyao/joleneyao.github.io/tree/master/p8/project)|[Link](https://github.com/joleneyao/joleneyao.github.io/tree/master/p8/quizzes)
 > ### Data Analyst Nanodegree Certificate of Completion
 
-(insert .png image here or link to pdf)
-
+<img src="https://raw.githubusercontent.com/joleneyao/udacity-DAND/master/images/certificate%20of%20completion.jpg">
 
