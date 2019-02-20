@@ -1,15 +1,11 @@
-<center>
 <img src="https://raw.githubusercontent.com/joleneyao/joleneyao.github.io/master/images/Udacitylogo.png">
 
 # Udacity Data Analyst Nanodegree Project Portfolio
-</center>
-
 
 
 ### Description
 
 Below is a table of all the projects that I have completed for the Data Analyst Nanodegree (DAND) from 2018-2019. What follows is a certificate of completion of the DAND. 
-<center>
 | Section(Term, Part)| Project | Quizzes |
 | ------------------ |:---------------------:| :-------:|
 | T1, Part 1 - Welcome                       | [Weather Trends](https://github.com/joleneyao/joleneyao.github.io/blob/master/p1/DAND%20-%20Project%201%20Weather%20Trends.pdf)|[Link](https://github.com/joleneyao/joleneyao.github.io/tree/master/p1/quizzes)   |
@@ -23,5 +19,3 @@ Below is a table of all the projects that I have completed for the Data Analyst 
 > ### Data Analyst Nanodegree Certificate of Completion
 
 <img src="https://raw.githubusercontent.com/joleneyao/udacity-DAND/master/images/certificate%20of%20completion.jpg">
-</center>
-
