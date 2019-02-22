@@ -16,7 +16,7 @@ Below is a table of all the projects that I have completed for the Data Analyst 
 | T2, Part 5 - Welcome to Term 2!       | [Test A Perceptual Phenomenon](https://github.com/joleneyao/joleneyao.github.io/blob/master/p5/project/Test%20a%20Perceptual%20Phenomenon.ipynb)|[Link](https://github.com/joleneyao/joleneyao.github.io/tree/master/p5/quizzes)  | 
 | T2, Part 6 - Exploratory Data Analysis     | [White Wine Quality](https://github.com/joleneyao/joleneyao.github.io/blob/master/p5/project/Test%20a%20Perceptual%20Phenomenon.ipynb)|[Link](https://github.com/joleneyao/joleneyao.github.io/tree/master/p6)  |
 | T2, Part 7 - Data Wrangling                | [Wrangle And Analyze Data](https://github.com/joleneyao/joleneyao.github.io/blob/master/p7/project/wrangle_act.ipynb)|[Link](https://github.com/joleneyao/joleneyao.github.io/tree/master/p7/quizzes)
-| T2, Part 8 - Data Story Telling            | [Chicago ORD Airport Analysis for Future Trips](https://github.com/joleneyao/joleneyao.github.io/tree/master/p8/project)|[Link](https://github.com/joleneyao/joleneyao.github.io/tree/master/p8/quizzes)
+| T2, Part 8 - Data Story Telling            | [Chicago ORD Airport Analysis for Future Trips](https://github.com/joleneyao/udacity-DAND/blob/master/p8/project/Udacity%20DAND%20%E2%80%93%20Data%20Story%20Telling%20Project%20Write.pdf)|[Link](https://github.com/joleneyao/joleneyao.github.io/tree/master/p8/quizzes)
 
 > ### Data Analyst Nanodegree Certificate of Completion
 
