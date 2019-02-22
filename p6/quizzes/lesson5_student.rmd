@@ -1,0 +1,303 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
+Lesson 5
+========================================================
+
+### Multivariate Data
+Notes: We are going to examine three or more quantative variables
+
+***
+
+### Moira Perceived Audience Size Colored by Age
+Notes: we are going to look at the same scatterplot of perceived audience size and actual audience size,but with age as a colored layer. The plot is still overplotted and color does not add much help
+
+***
+
+### Third Qualitative Variable
+Notes:
+
+```{r Third Qualitative Variable}
+pf <- read.csv('pseudo_facebook.tsv', sep= "\t")
+library(dplyr)
+pf.fc_by_age_gender <- pf %>%
+  filter(!is.na(pf$gender))  %>%
+  group_by(age, gender)  %>%
+  summarise(mean_friend_count= mean(friend_count),
+            median_friend_count= median(friend_count),
+            n = n())  %>%
+  ungroup()  %>%
+  arrange(age)
+
+head(pf.fc_by_age_gender)
+```
+
+***
+
+### Plotting Conditional Summaries
+Notes: we do not need to include stat and fun.y parameters since we already used dplyr package to summarize the data. do not use the following code below:
+ggplot(aes(x = age, y = friend_count),
+       data = subset(pf, !is.na(gender))) +
+  geom_line(aes(color = gender), stat = 'summary', fun.y = median)
+
+```{r Plotting Conditional Summaries}
+library(ggplot2)
+ggplot(aes(x=age, y=median_friend_count), data= pf.fc_by_age_gender) + geom_line(aes(color=gender))
+```
+
+***
+
+### Thinking in Ratios
+Notes: Lets think in ratios. How many more friends does the female gender have more than males?
+
+***
+
+### Wide and Long Format
+Notes: We are going to reshape the dataframe from long format to wide format. We can use tidyr package or reshape2 package. 
+
+***
+
+### Reshaping Data
+Notes: dcast function will allow you to make a new dataframe from long to wide format. melt function will reverse this and convert wide format to long format. We can use dplyr and tidyr packages to create the same dataframe with the code: 
+pf.fc_by_age_gender.wide <-
+  subset(pf.fc_by_age_gender[c('age', 'gender', 'median_friend_count')],
+         !is.na(gender)) %>%
+  spread(gender, median_friend_count) %>%
+  mutate(ratio = male / female)
+
+head(pf.fc_by_age_gender.wide)
+
+```{r}
+#install.packages('reshape2')
+library(reshape2)
+
+pf.fc_by_age_gender.wide <- dcast(pf.fc_by_age_gender,
+                                  age ~ gender,
+                                  value.var = 'median_friend_count')
+
+head(pf.fc_by_age_gender.wide)
+```
+
+
+***
+
+### Ratio Plot
+Notes: we need to use geom_hline as a baseline to see if females or males have more average friend counts. 
+
+```{r Ratio Plot}
+ggplot(aes(x=age, y = female/male), data= pf.fc_by_age_gender.wide) + 
+  geom_line() +
+  geom_hline(yintercept= 1, alpha=0.3, linetype= 2)
+```
+
+***
+
+### Third Quantitative Variable
+Notes:tenure is somewhat like age in that it describes how long a person has been a member of facebook.Create a variable called year_joined in the pf data frame using the variable tenure and 2014 as the reference year.
+
+```{r Third Quantitative Variable}
+pf$year_joined <- floor(2014 - (pf$tenure / 365))
+```
+
+***
+
+### Cut a Variable
+Notes: Create a new variable in the data frame called year_joined.bucket by using the cut function on the variable year_joined. You can look up the cut function for help.
+
+```{r Cut a Variable}
+pf$year_joined.bucket <- cut(pf$year_joined, breaks= c(2004, 2009, 2011, 2012, 2014))
+```
+
+***
+
+### Plotting it All Together
+Notes: Create a line graph of friend_count vs. age so that each year_joined.bucket is a line tracking the median user friend_count across age. This means you should have four different lines on your plot.
+
+```{r Plotting it All Together}
+ggplot(aes(x = age, y = friend_count),
+       data = subset(pf, !is.na(gender))) +
+  geom_line(aes(color = year_joined.bucket), stat = 'summary', fun.y = median)
+```
+
+***
+
+### Plot the Grand Mean
+Notes: Write code to do the following:
+ (1) Add another geom_line to code below to plot the grand mean of the friend count vs age.
+ (2) Exclude any users whose year_joined.bucket is NA.
+ (3) Use a different line type for the grand mean.
+As a reminder, the parameter linetype can take the values 0-6:
+0 = blank, 1 = solid, 2 = dashed, 3 = dotted, 4 = dotdash, 5 = longdash, 6 = twodash
+
+```{r Plot the Grand Mean}
+ggplot(aes(x = age, y = friend_count),
+       data = subset(pf, !is.na(year_joined.bucket))) +
+  geom_line(aes(color = year_joined.bucket), stat = 'summary', fun.y = mean) +
+  geom_line(stat= 'summary', fun.y= mean, linetype= 2)
+```
+
+***
+
+### Friending Rate
+Notes: What is the median and maximum friend rate with users of at least 1 day of tenure? Subset data so that we only get friend_count per tenure and provide a summary of statistics. 
+
+```{r Friending Rate}
+with(subset(pf, tenure >=1), summary(friend_count/tenure))
+```
+
+***
+
+### Friendships Initiated
+Notes: Create a line graph of mean of friendships_initiated per day (of tenure) vs. tenure colored by year_joined.bucket.
+
+What is the median friend rate? 0.2205
+
+What is the maximum friend rate? 417
+
+```{r Friendships Initiated}
+ggplot(aes(x=tenure, y=friendships_initiated / tenure), 
+       data = subset(pf, tenure >= 1)) +
+  geom_line(aes(color = year_joined.bucket))
+```
+
+***
+
+### Bias-Variance Tradeoff Revisited
+Notes: Instead of geom_line(), use geom_smooth() to add a smoother to the plot. You can use the defaults for geom_smooth() but do color the line by year_joined.bucket
+
+```{r Bias-Variance Tradeoff Revisited}
+
+ggplot(aes(x = tenure, y = friendships_initiated / tenure),
+       data = subset(pf, tenure >= 1)) +
+  geom_smooth(aes(color = year_joined.bucket))
+
+```
+
+***
+
+### Sean's NFL Fan Sentiment Study
+Notes: As you smooth out the graph, you lose variance but gain bias. 
+
+***
+
+### Introducing the Yogurt Data Set
+Notes:
+
+***
+
+### Histograms Revisited
+Notes:
+
+```{r Histograms Revisited}
+getwd()
+yo <- read.csv('yogurt.csv')
+str(yo)
+
+# Change the ID from an integer to a factor
+yo$id <- factor(yo$id)
+str(yo)
+
+# Create a histogram of yogurt prices
+qplot(data= yo, x= price, fill = I('#F79420'))
+```
+
+***
+
+### Number of Purchases
+Notes: Create a new variable called all.purchases, which gives the total counts of yogurt for each observation or household.
+
+One way to do this is using the transform function. You can look up the function transform and run the examples of code at the bottom of the documentation to figure out what it does.
+
+The transform function produces a data frame so if you use it then save the result to 'yo'!
+
+```{r Number of Purchases}
+?transform
+yo <- transform(yo, all.purchases = (strawberry + blueberry + pina.colada + plain + mixed.berry))
+```
+
+***
+
+### Prices over Time
+Notes: Create a scatterplot of price vs time.
+
+```{r Prices over Time}
+ggplot(aes(x= time, y= price), data = yo) + geom_jitter(alpha = 1/4, shape = 21, fill = I('#F79420'))
+```
+
+***
+
+### Sampling Observations
+Notes:
+
+***
+
+### Looking at Samples of Households
+
+```{r Looking at Sample of Households}
+
+```
+
+***
+
+### The Limits of Cross Sectional Data
+Notes:
+
+***
+
+### Many Variables
+Notes:
+
+***
+
+### Scatterplot Matrix
+Notes:
+```{r}
+#install.packages(GGally)
+library(GGally)
+theme_set(theme_minimal(20))
+
+# set the seed for reproducible results
+set.seed(1836)
+pf_subset <- pf[, c(2:15)]
+names(pf_subset)
+ggpairs(pf_subset[sample.int(nrow(pf_subset), 1000), ])
+```
+***
+
+### Even More Variables
+Notes:
+```{r}
+nci <- read.table("nci.tsv")
+colnames(nci) <- c(1:64)
+```
+***
+
+### Heat Maps
+Notes:
+
+```{r}
+# melt data to long format
+library(reshape2)
+nci.long.samp <- melt(as.matrix(nci[1:200,]))
+names(nci.long.samp) <- c("gene", "case", "value")
+head(nci.long.samp)
+
+# make the heat map
+ggplot(aes(y = gene, x = case, fill = value),
+  data = nci.long.samp) +
+  geom_tile() +
+  scale_fill_gradientn(colours = colorRampPalette(c("blue", "red"))(100))
+```
+
+
+***
+
+### Analyzing Three of More Variables
+Reflection: wide and long data, reshaping data, different plotting methods, geom_smooth, different methods of plotting with cross-sectional data vs. longitudinal data, scatterplot matrices, and heat maps
+
+***
+
+Click **KnitHTML** to see all of your hard work and to have an html
+page of this lesson, your answers, and your notes!
